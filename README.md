@@ -1,1 +1,13 @@
-# Traveling-Salesperson-Problem
+In the traveling salesperson problem, a salesperson, who lives in one of the cities, is expected to make a round trip visiting all the other cities and returning home. (It doesn't actually matter which city is the starting point.) The requirement is that the total distance traveled be as small as possible.
+
+It turns out that this simple problem is actually remarkably hard to solve, particularly if one insists on finding the absolutely best answer. Approaches to solving this problem have used simple enumeration, Monte Carlo estimation, minimal spanning trees, linear programming, simulated annealing, Tabu searches, the branch and bound procedure, the integer assignment problem, the convex hull, genetic algorithms, ant colony algorithms, and the cross-entropy method,
+
+Thus, this simple problem has been the inspiration for many new ways of trying to solve not just the traveling salesperson problem but related "combinatorial optimization" problems, in which a discrete set of choices result in a payoff which is to be maximized or a cost which is to be minimized.
+
+In the simplest version of the traveling salesperson problem, it is possible to travel from any city A to any city B, and the distance is the same both ways. This might be imagined to correspond to travel by air.
+
+In a variation of the problem, it might not be possible to travel directly between certain cities. This is essentially equivalent to setting the corresponding intercity distance to be infinite. This could be considered an attempt to include the realities of highway travel.
+
+To specify the problem, we may provide the spatial coordinates of the N points. Here again, there can be complications. It would be natural to expect coordinates on a plane, with the Euclidean distance, but the data might be more accurately described as lying on a sphere, with travel constrained to the surface; or we might have locations in a gridded city, in which case distance is measured with the L1 norm rather than the Euclidean norm, and there are further obvious variations.
+
+If we are given a set of coordinates and a description of the distance function, we can compute the distance matrix. So we might suppose that any distance matrix comes from a set of point coordinates. But that's not true. If we start with the distance matrix, we are free to put down numbers that violate the triangle inequality, for instance. Problems in which the data does not come from an underlying set of point coordinates and a norm turn out to be much harder, since certain geometric facts can no longer be used to estimate the solution.
