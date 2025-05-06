@@ -17,7 +17,7 @@ def plot_tour(coords, tour, title):
 
 
 def main():
-    datasets = ['att48.tsp', 'fri26.tsp', 'gr17.tsp']
+    datasets = ['att48.tsp', 'lu980.tsp', 'wi29.tsp']
 
     for name in datasets:
         filepath = f'data/{name}'
