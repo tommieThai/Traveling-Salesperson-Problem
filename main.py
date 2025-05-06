@@ -2,6 +2,7 @@ from utils.tsp_loader import load_tsp_file
 from algorithms.nearest_neighbor import nearest_neighbor
 from algorithms.simulated_annealing import simulated_annealing
 from algorithms.genetic_algorithm import genetic_algorithm
+from algorithms.ant_colony import ant_colony
 import matplotlib.pyplot as plt
 import time
 
@@ -47,6 +48,13 @@ def main():
         end = time.time()
         print(f"[Genetic Algorithm] Distance: {dist_ga:.2f} | Time: {end - start:.4f}s")
         plot_tour(coords, tour_ga, f"Genetic Algorithm Tour - {name}")
+
+        # Ant Colony Optimization
+        start = time.time()
+        tour_aco, dist_aco = ant_colony(coords)
+        end = time.time()
+        print(f"[Ant Colony Optimization] Distance: {dist_aco:.2f} | Time: {end - start:.4f}s")
+        plot_tour(coords, tour_aco, f"Ant Colony Optimization Tour - {name}")
 
 
 if __name__ == "__main__":
