@@ -1,6 +1,7 @@
 from utils.tsp_loader import load_tsp_file
 from algorithms.nearest_neighbor import nearest_neighbor
 from algorithms.simulated_annealing import simulated_annealing
+from algorithms.genetic_algorithm import genetic_algorithm
 import matplotlib.pyplot as plt
 import time
 
@@ -39,6 +40,13 @@ def main():
         end = time.time()
         print(f"[Simulated Annealing] Distance: {dist_sa:.2f} | Time: {end - start:.4f}s")
         plot_tour(coords, tour_sa, f"Simulated Annealing Tour - {name}")
+
+        # Genetic Algorithm
+        start = time.time()
+        tour_ga, dist_ga = genetic_algorithm(coords)
+        end = time.time()
+        print(f"[Genetic Algorithm] Distance: {dist_ga:.2f} | Time: {end - start:.4f}s")
+        plot_tour(coords, tour_ga, f"Genetic Algorithm Tour - {name}")
 
 
 if __name__ == "__main__":
