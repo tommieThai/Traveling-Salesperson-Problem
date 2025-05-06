@@ -3,7 +3,6 @@ import numpy as np
 from deap import base, creator, tools, algorithms
 from utils.distance_metrics import euclidean_distance
 
-
 def total_distance(tour, coords):
     dist = 0.0
     for i in range(len(tour) - 1):
@@ -11,12 +10,14 @@ def total_distance(tour, coords):
     dist += euclidean_distance(coords[tour[-1]], coords[tour[0]])
     return dist
 
+# Only create DEAP classes if not already created
+if not hasattr(creator, "FitnessMin"):
+    creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
+if not hasattr(creator, "Individual"):
+    creator.create("Individual", list, fitness=creator.FitnessMin)
 
 def genetic_algorithm(coords, population_size=100, generations=300, cx_pb=0.7, mut_pb=0.2):
     n = len(coords)
-
-    creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
-    creator.create("Individual", list, fitness=creator.FitnessMin)
 
     toolbox = base.Toolbox()
     toolbox.register("indices", random.sample, range(n), n)
